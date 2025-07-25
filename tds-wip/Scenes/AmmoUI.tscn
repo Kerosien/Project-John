@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://by50iendes4qv"]
+
+[ext_resource type="Script" uid="uid://blltqq8klapyp" path="res://Scripts/Ammo_UI.gd" id="1_hrtxj"]
+
+[node name="AmmoUI" type="CanvasLayer"]
+script = ExtResource("1_hrtxj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmmoCountLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+vertical_alignment = 2
+
+[node name="ReserveAmmoLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+vertical_alignment = 2
+
+[node name="ReloadPromptLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+vertical_alignment = 2
