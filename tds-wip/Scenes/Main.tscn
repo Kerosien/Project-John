@@ -3367,7 +3367,7 @@ sources/0 = SubResource("TileSetAtlasSource_rgh2o")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(592, 350)
+position = Vector2(623, 419)
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("3_kln2b")

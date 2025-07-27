@@ -32,10 +32,11 @@ var is_reloading := false
 const bulletScene = preload("res://Scenes/Bullet.tscn")
 
 func _ready() -> void:
-	var screen_size = get_viewport_rect().size
-	self.global_position = screen_size / 2.0
+	
+	# Camera bounds
 	camrea.make_current()
 	set_camera_limits()
+	
 	health_bar.set_health(current_health)
 	await get_tree().process_frame
 	update_ammo_ui()
@@ -87,7 +88,7 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	
-	if is_reloading or current_ammo <=0:
+	if is_reloading or current_ammo <= 0:
 		return
 	
 	var bullet = bulletScene.instantiate()
@@ -130,6 +131,7 @@ func set_camera_limits():
 	camrea.limit_bottom = int (map_position.y + map_size.y)
 	
 func _process(_delta):
+	# Reload check
 	if Input.is_action_just_pressed("reload"):
 		reload_text.modulate = Color.RED
 		reload()
@@ -139,6 +141,8 @@ func reload():
 		return
 	is_reloading = true
 	$ReloadTimer.start(reload_time)
+	
+		
 	
 func _on_reload_timer_timeout() -> void:
 	var needed = max_ammo_in_clip - current_ammo
@@ -150,5 +154,5 @@ func _on_reload_timer_timeout() -> void:
 	update_ammo_ui()
 	
 func update_ammo_ui():
-	var need_reload = current_ammo <= 0 and reserve_ammo >= 0
+	var need_reload = current_ammo <= 0 and reserve_ammo <= 0
 	ammo_ui.update_ammo_ui(current_ammo, max_ammo_in_clip, reserve_ammo, need_reload)
