@@ -111,7 +111,7 @@ func take_damage(amount: int = 1) -> void:
 		
 	if current_health <= 0:
 		die()
-			
+		
 func die() -> void:
 	get_tree().paused = true
 	sprite.visible = false
@@ -141,8 +141,6 @@ func reload():
 		return
 	is_reloading = true
 	$ReloadTimer.start(reload_time)
-	
-		
 	
 func _on_reload_timer_timeout() -> void:
 	var needed = max_ammo_in_clip - current_ammo
