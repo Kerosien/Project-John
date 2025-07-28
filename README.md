@@ -1,14 +1,14 @@
-# 🧠 Top-Down Shooter: Game Design Document
+# 🧠 Project John: Game Design Document
 
 > A fast-paced top-down shooter built in **Godot 4.4** with wave-based enemy encounters, ammo management, and progressive level difficulty.
 
 ---
 
 ## 🎮 Game Overview
-- **Title**: *[To Be Determined]*
+- **Title**: Project John (working title)
 - **Genre**: Top-Down Shooter
 - **Engine**: Godot 4.4
-- **Target Platform**: PC
+- **Target Platform**: PC, Mobile
 - **Player Experience Goal**: Tactical shooting, resource management, and increasingly intense gameplay against enemy waves.
 
 ---
@@ -18,14 +18,14 @@
 ### ✅ Player Mechanics
 - WASD movement
 - Sprint (with cooldown)
-- Shoot in direction of aim
+- Shoot in the direction of aim
 - Reload system (clip + reserve)
 - Ammo pickups
 - Health system (dot-based UI)
 - Death + respawn system
 
 ### 👾 Enemy Mechanics
-- Zombie AI follows and damages player
+- Zombie AI follows and damages the player
 - Dies on bullet impact
 - Spawn within polygon bounds
 - Planned: multiple enemy types & wave scaling
@@ -104,7 +104,7 @@
 
 ## 🛠 Technical Notes
 - Built with **Godot 4.4**
-- `CollisionPolygon2D` used for spawn area
+- `CollisionPolygon2D` used for the spawn area
 - Timer nodes for reload delay (`One Shot`)
 - Modular scene setup
 
@@ -112,7 +112,7 @@
 
 ## 🗺️ Level Design
 - Levels change every X waves
-- Enemies get harder each level
+- Enemies get harder with each level
 - Hard limit with end goal planned
 - Levels load dynamically
 
@@ -191,14 +191,14 @@
 ### ✅ Player Mechanics
 - WASD movement
 - Sprint (with cooldown)
-- Shoot in direction of aim
+- Shoot in the direction of aim
 - Reload system (clip + reserve)
 - Ammo pickups
 - Health system (dot-based UI)
 - Death + respawn system
 
 ### 👾 Enemy Mechanics
-- Zombie AI follows and damages player
+- Zombie AI follows and damages the player
 - Dies on bullet impact
 - Spawn within polygon bounds
 - Planned: multiple enemy types & wave scaling
@@ -368,7 +368,6 @@
 - [✅] Add ammo pickup and integration into reserve
 - [✅] Implement enemy spawner using CollisionPolygon2D
 - [] Create and manage wave system (hybrid kill/time-based)
-- [] Add a second enemy type
 
 ---
 
