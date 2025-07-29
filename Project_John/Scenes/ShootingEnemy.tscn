@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg8dd1ujpi0nv"]
+
+[ext_resource type="Script" uid="uid://nnrytxw6p74o" path="res://Scripts/ShootingEnemy.gd" id="1_4yt6u"]
+[ext_resource type="Texture2D" uid="uid://dqgjjuhq4ouw" path="res://Assets/Art/Robot 1/robot1_gun.png" id="2_4yt6u"]
+[ext_resource type="PackedScene" uid="uid://dcgsdlkr0uxh8" path="res://Scenes/Bullet.tscn" id="2_s7mdr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1htj"]
+height = 42.0
+
+[node name="ShootingEnemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 3
+script = ExtResource("1_4yt6u")
+bullet_scene = ExtResource("2_s7mdr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4yt6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 0)
+shape = SubResource("CapsuleShape2D_m1htj")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(22, 10)

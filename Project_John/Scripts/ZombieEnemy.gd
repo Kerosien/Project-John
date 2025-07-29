@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+class_name ZombieEnemy
+
+# Variables
 var max_health := 3
 var speed := 100.0
 
@@ -30,7 +33,10 @@ func take_damage(amount: int = 1) -> void:
 	sprite.modulate = Color.RED
 	flash_timer = flash_duration
 	if current_health <= 0:
+		get_node("/root/Main/WaveManager").on_enemy_killed()
 		queue_free()
 		
+	
+	
 func is_enemy() -> bool:
 	return true

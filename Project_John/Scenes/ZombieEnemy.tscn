@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx80gxwcgmsto"]
 
-[ext_resource type="Script" uid="uid://b7775t5r3lfhm" path="res://Scripts/Enemy.gd" id="1_wovta"]
+[ext_resource type="Script" uid="uid://b7775t5r3lfhm" path="res://Scripts/ZombieEnemy.gd" id="1_wovta"]
 [ext_resource type="Texture2D" uid="uid://d25wmqyuk0siv" path="res://Assets/Art/Zombie 1/zoimbie1_hold.png" id="2_wovta"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1htj"]

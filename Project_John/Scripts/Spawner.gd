@@ -5,29 +5,31 @@ extends Node2D
 @export var ammo_scene: PackedScene
 
 var attempts := 10
+var spawning_enabled: bool = false
 
 @onready var spawn_area: CollisionPolygon2D = get_node(spawn_area_path)
 @onready var timer := $Timer
 @onready var ammo_timer := $AmmoSpawnTimer
 
 func _ready():
-	timer.timeout.connect(_on_timer_timeout)
-	
 	# Sets how fast ammo spawns
 	ammo_timer.wait_time = 1.0
 	ammo_timer.autostart = true
 	ammo_timer.start()
 
 func _on_timer_timeout() -> void:
-	if not enemy_scene:
+	if not spawning_enabled or not enemy_scene:
 		return
 
-	for i in attempts:
+	for i in range(attempts):
+		
 		var pos = get_random_point_in_spawn_area()
+		
 		if pos != Vector2.ZERO and not get_viewport().get_visible_rect().has_point(pos):
+			print("Spawner timed-spawn enemy at ", pos)
 			var enemy = enemy_scene.instantiate()
 			enemy.global_position = pos
-			get_tree().current_scene.add_child(enemy)
+			get_tree().current_scene.call_deferred("add_child", enemy)
 			break
 
 func spawn_ammo():
@@ -44,10 +46,13 @@ func spawn_enemy():
 	if pos == Vector2.ZERO:
 		return
 		
+	print("Spawner.spawn_enemy() at ", pos)
+		
 	var enemy = enemy_scene.instantiate()
 	enemy.global_position = pos
-	get_tree().current_scene.add_child(enemy)
+	get_tree().current_scene.call_deferred("add_child", enemy)
 	
+
 func get_random_point_in_spawn_area() -> Vector2:
 	if not spawn_area or spawn_area.polygon.is_empty():
 		return Vector2.ZERO

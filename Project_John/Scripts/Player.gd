@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 # --- Variables ---
-var walk_speed := 200.0
-var sprint_speed := 350.0
-var sprint_duration := 1.5  
-var sprint_cooldown := 3.0  
-var max_health := 1
+var walk_speed := 300.0
+var sprint_speed := 500.0
+var sprint_duration := 3.0
+var sprint_cooldown := 2.0
+var max_health := 5
 var invincibility_time := 1.0
 
 var is_sprinting := false
@@ -27,7 +27,7 @@ var is_reloading := false
 @onready var health_bar := $"../UI/HealthBar"
 @onready var ammo_ui = $"../UI/AmmoUI"
 @onready var reload_text = $"../UI/ReloadPrompt"
-@onready var death_screen = $"../UI/DeathScreen"
+@onready var death_screen: Control = $"../UI/DeathScreen"
 
 const bulletScene = preload("res://Scenes/Bullet.tscn")
 
@@ -115,6 +115,7 @@ func take_damage(amount: int = 1) -> void:
 func die() -> void:
 	get_tree().paused = true
 	sprite.visible = false
+	death_screen.show()
 	
 func set_camera_limits():
 	
