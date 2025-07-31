@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbs7cqtwcu1yh"]
+
+[ext_resource type="Script" uid="uid://com2y126tv3ha" path="res://Scripts/Spawner.gd" id="1_si0ot"]
+[ext_resource type="PackedScene" uid="uid://co36s23gnprxm" path="res://Scenes/Systems/AmmoPickup.tscn" id="3_1stx7"]
+[ext_resource type="PackedScene" uid="uid://bp6541p52yvd8" path="res://Scenes/Systems/HealthPickup.tscn" id="4_5jbfu"]
+[ext_resource type="PackedScene" uid="uid://bx80gxwcgmsto" path="res://Scenes/Enemy/ZombieEnemy.tscn" id="6_h6toy"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_si0ot")
+enemy_scene = ExtResource("6_h6toy")
+ammo_scene = ExtResource("3_1stx7")
+health_scene = ExtResource("4_5jbfu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AmmoSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealthSpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="AmmoSpawnTimer" to="." method="_on_ammo_spawn_timer_timeout"]
+[connection signal="timeout" from="HealthSpawnTimer" to="." method="_on_health_spawn_timer_timeout"]

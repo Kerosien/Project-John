@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhhdupou426ok"]
+
+[ext_resource type="Script" uid="uid://liqdr80jltrb" path="res://Scripts/WaveManager.gd" id="1_6bx68"]
+[ext_resource type="PackedScene" uid="uid://dg8dd1ujpi0nv" path="res://Scenes/Enemy/ShootingEnemy.tscn" id="2_8bq3m"]
+
+[node name="WaveManager" type="Node2D"]
+script = ExtResource("1_6bx68")
+spawner_path = NodePath("../Spawner")
+enemy_scene = ExtResource("2_8bq3m")
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

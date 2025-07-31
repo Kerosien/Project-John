@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwhvg2mtfy2rc"]
+
+[ext_resource type="Script" uid="uid://cfdicgw1fsu4k" path="res://Scripts/HealthBar.gd" id="1_48q88"]
+[ext_resource type="PackedScene" uid="uid://br3kcs4djl2om" path="res://Scenes/Systems/HealthIcon.tscn" id="2_xjg7p"]
+[ext_resource type="Script" uid="uid://cx5j7eigpmlq" path="res://Scripts/StaminaBar.gd" id="3_mg6lk"]
+[ext_resource type="PackedScene" uid="uid://ubsxwsovhud2" path="res://Scenes/Systems/StaminaIcon.tscn" id="4_wunin"]
+[ext_resource type="Script" uid="uid://blltqq8klapyp" path="res://Scripts/Ammo_UI.gd" id="5_j04uc"]
+[ext_resource type="PackedScene" uid="uid://e55qiryo8oyh" path="res://Scenes/Systems/DeathScreen.tscn" id="6_vqx31"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+offset_left = 3.11
+offset_top = -4.15
+offset_right = 43.11
+offset_bottom = 35.85
+scale = Vector2(0.8, 0.8)
+alignment = 1
+script = ExtResource("1_48q88")
+icon_scene = ExtResource("2_xjg7p")
+
+[node name="StaminaBar" type="HBoxContainer" parent="."]
+offset_left = 12.675
+offset_top = 39.96
+offset_right = 12.675
+offset_bottom = 39.96
+script = ExtResource("3_mg6lk")
+icon_scene = ExtResource("4_wunin")
+
+[node name="AmmoUI" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, -100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 13.045)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 2
+script = ExtResource("5_j04uc")
+
+[node name="AmmoCount" type="Label" parent="AmmoUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+vertical_alignment = 2
+
+[node name="ReserveAmmo" type="Label" parent="AmmoUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+vertical_alignment = 2
+
+[node name="ReloadPrompt" type="Label" parent="AmmoUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="Timer" type="Timer" parent="AmmoUI/ReloadPrompt"]
+
+[node name="DeathScreen" parent="." instance=ExtResource("6_vqx31")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -67.0
+offset_right = 4.0
+offset_bottom = -67.0
+size_flags_horizontal = 4
+size_flags_vertical = 4

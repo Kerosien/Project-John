@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://uhvfafo8qpmr"]
+
+[ext_resource type="Texture2D" uid="uid://d25wmqyuk0siv" path="res://KennyAssets/Zombie 1/zoimbie1_hold.png" id="1_5h6sl"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_5h6sl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(29, -15, 33, -31, 18, -37, 0, -41, -17, -39, -25, -11, -30, 0, -24, 13, -20, 39, 5, 41, 20, 38, 34, 33, 29, 16, 15, 16, 24, 2, 16, -15)

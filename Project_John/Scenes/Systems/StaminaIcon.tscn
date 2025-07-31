@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ubsxwsovhud2"]
+
+[ext_resource type="Texture2D" uid="uid://cskfnb6iuggkf" path="res://MyAssets/Pixle Art/StaminaOrb.png" id="1_205us"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_205us")
